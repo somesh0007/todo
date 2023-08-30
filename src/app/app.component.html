@@ -1,0 +1,17 @@
+
+  <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
+    <input type="text" formControlName="newTodo" placeholder="Add a new todo">
+    <button type="submit">Add</button>
+    <button type="button" (click)="clear()">&times;</button>
+
+  </form>
+  <div>
+    <h2>Todo List</h2>
+    <ul>
+      <li *ngFor="let todo of todos; let i = index;">
+        {{ todo }}
+        <button (click)="removeTodo(todo,i)">Remove</button>
+      </li>
+    </ul>
+  </div>
+  
