@@ -19,15 +19,21 @@ export class AppComponent implements OnInit {
 
   addTodo() {
     if (this.todoForm.invalid) {
+      alert("enter some values")
     }
     else {
       const val = this.todoForm.getRawValue()
       const title = val.newTodo
-      this.todos.push((title));
-
-      this.todoForm.reset({ newTodo: '' });
-      console.log(this.todoForm);
-
+      if(this.todos.includes(title)){
+        alert("already exisit")
+      }
+      else{
+        this.todos.push((title));
+        this.todoForm.reset({ newTodo: '' });
+        console.log(this.todoForm);
+  
+      }
+      
     }
 
   }
