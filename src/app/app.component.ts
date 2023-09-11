@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,38 +6,37 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  
-   todoForm = new FormGroup({
-    newTodo: new FormControl('',Validators.required),
+export class AppComponent implements OnInit {
+
+  todoForm = new FormGroup({
+    newTodo: new FormControl('', Validators.required),
   })
-  todos:any [] = [];
+  todos: any[] = [];
   constructor() { }
   ngOnInit() {
-    
+
   }
 
   addTodo() {
-    if (this.todoForm.invalid){
-
+    if (this.todoForm.invalid) {
     }
-    else{
+    else {
       const val = this.todoForm.getRawValue()
       const title = val.newTodo
       this.todos.push((title));
-      
-      this.todoForm.reset({newTodo:''});
+
+      this.todoForm.reset({ newTodo: '' });
       console.log(this.todoForm);
-      
+
     }
-   
+
   }
-  removeTodo(todo: string, index:number) {
+  removeTodo(todo: string, index: number) {
     console.log(todo);
-    
+
     this.todos = this.todos.filter((todo, i) => i !== index);
   }
-  clear(){
-    this.todoForm.reset({newTodo:''});
+  clear() {
+    this.todoForm.reset({ newTodo: '' });
   }
 }
