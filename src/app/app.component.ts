@@ -39,4 +39,8 @@ export class AppComponent implements OnInit {
   clear() {
     this.todoForm.reset({ newTodo: '' });
   }
+  clearAll(){
+    const newArray:any = []
+    this.todos = newArray
+  }
 }
