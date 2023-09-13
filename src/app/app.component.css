@@ -96,3 +96,79 @@ h2 {
   background-color: #c82333;
   border: 1px solid #c82333;
 }
+/* .modal-header {
+  border-bottom: 0 none;
+  background-color: rgba(245, 245, 245, 0.5);
+} */
+.modal-header {
+  background-color: #007bff; /* Header background color */
+  color: #fff; /* Header text color */
+}
+
+/* Style the modal body */
+.modal-body {
+  padding: 20px; /* Add padding to the modal body */
+}
+
+/* Style the input field */
+.form-control {
+  border: 1px solid #ccc; /* Add a border to the input field */
+  border-radius: 5px; /* Add border-radius to the input field */
+}
+
+/* Style the "Save" button */
+.btn_2 {
+  background-color: #4caf50; /* Button background color */
+  color: #fff; /* Button text color */
+  padding: 10px 20px; /* Add padding to the button */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+.btn_2:hover {
+  background-color: #45a049; /* Hover background color */
+  color: #fff; /* Hover text color */
+}
+
+.btn_2:active {
+  background-color: #388e3c; /* Active (click) background color */
+  color: #fff; /* Active (click) text color */
+}
+
+/* Style the "Close" button */
+.btn-secondary {
+  background-color: #ccc; /* Button background color */
+  color: #000; /* Button text color */
+  padding: 10px 20px; /* Add padding to the button */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+.btn-secondary:hover {
+  background-color: #999; /* Hover background color */
+  color: #fff; /* Hover text color */
+}
+
+.btn-secondary:active {
+  background-color: #666; /* Active (click) background color */
+  color: #fff; /* Active (click) text color */
+}
+.close {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  font-size: 20px;
+  color: #333; /* Close button color */
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.close:hover {
+  color: #f00; /* Hover color */
+}

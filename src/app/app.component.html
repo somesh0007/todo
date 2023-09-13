@@ -1,36 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
   <!-- Include Bootstrap CSS here if not already included -->
 </head>
+
 <body>
 
-<div class="container mt-4">
-  <h2>Todo List</h2>
+  <div class="container mt-4">
+    <h2>Todo List</h2>
 
-  <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" formControlName="newTodo" placeholder="Add a new todo">
-     
+    <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" formControlName="newTodo" placeholder="Add a new todo">
+
         <div class="button-container">
           <button class="btn btn-primary stylish-button mr-2" type="submit">Add</button>
           <button class="btn btn-danger stylish-button" type="button" (click)="clear()">&times;</button>
-          <button *ngIf="todos.length > 1" class="btn btn-danger stylish-button" type="button" (click)="clearAll()">Clear All</button>
+          <button *ngIf="todos.length > 1" class="btn btn-danger stylish-button" type="button"
+            (click)="clearAll()">Clear All</button>
         </div>
-      
-    </div>
-  </form>
 
-  <ul class="list-group">
-    <li *ngFor="let todo of todos; let i = index;" class="list-group-item">
-      {{ todo }}
-      <button class="btn btn-danger" (click)="removeTodo(todo, i)">Remove</button>
-    </li>
-  </ul>
-</div>
+      </div>
+    </form>
+
+    <ul class="list-group">
+      <li *ngFor="let todo of todos; let i = index;"
+        class="list-group-item d-flex justify-content-between align-items-center">
+        {{ todo }}
+        <div>
+          <button class="btn btn-danger mr-2" (click)="openDeleteModal(todo, i)">Remove</button>
+          <button class="btn btn-primary" (click)="openTodoEditModal(updateOrderDetails, i, todo)">Edit</button>
+        </div>
+      </li>
+    </ul>
+  </div>
 
 </body>
+
 </html>
+
+<!--edit todo details modal start-->
+<ng-template #updateOrderDetails let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Update todoForm</h4>
+    <button (click)="modal.close()" aria-label="Close" class="close" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="updateTodoForm">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>New Todo:</label>
+            <input type="text" class="form-control" formControlName="newTodo">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button (click)="modal.close()" class="btn btn-secondary" type="button">Close</button>
+    <button (click)="submitEditTodoModal()" class="btn btn_2" type="button">
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<!-- edit todo  modal end-->
+
+<!-- delete modal starts-->
+<ng-template #deleteTodoModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Remove Todo</h4>
+    <button type="button" class="close" (click)="modal.dismiss('Close click')">
+      <span>&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to remove.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancel')">No</button>
+    <button type="button" class="btn btn_2" (click)="modal.close('Remove')">Yes</button>
+  </div>
+</ng-template>
