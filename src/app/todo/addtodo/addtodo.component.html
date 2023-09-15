@@ -1,0 +1,13 @@
+ <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" formControlName="newTodo" placeholder="Add a new todo">
+
+        <div class="button-container">
+          <button class="btn btn-primary stylish-button mr-2" type="submit">Add</button>
+          <button class="btn btn-danger stylish-button" type="button" (click)="clear()">&times;</button>
+          <button *ngIf="todos.length > 1" class="btn btn-danger stylish-button" type="button"
+            (click)="clearAll()">Clear All</button>
+        </div>
+
+      </div>
+    </form>

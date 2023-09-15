@@ -9,7 +9,7 @@
   margin-right: 10px;
 }
 .form-control::placeholder {
-  color: #ccc; /* Replace with your desired light color */
+  color: #ccc;
 }
 .btn-primary {
   background-color: #3498db;

@@ -16,7 +16,6 @@ interface TodoFormType {
 export class AppComponent implements OnInit {
   @ViewChild('deleteTodoModal', { static: true }) deleteTodoModal: TemplateRef<any> | undefined;
 
-
   todoForm = new FormGroup<TodoFormType>({
     newTodo: new FormControl('', [Validators.required]),
     index: new FormControl(null),
@@ -27,8 +26,8 @@ export class AppComponent implements OnInit {
     index: new FormControl(null),
   })
 
-
   todos: string[] = [];
+
   constructor(
     public modalService: NgbModal,
   ) { }
@@ -49,10 +48,7 @@ export class AppComponent implements OnInit {
       this.todos.push((title));
       this.todoForm.reset({ newTodo: '' });
       this.updateLocalStorage();
-
-
     }
-
   }
   updateLocalStorage() {
     localStorage.setItem('todos', JSON.stringify(this.todos));
@@ -70,10 +66,12 @@ export class AppComponent implements OnInit {
   clear() {
     this.todoForm.reset({ newTodo: '' });
   }
+
   clearAll() {
     this.todos = []
     this.updateLocalStorage()
   }
+
   openTodoEditModal(content: TemplateRef<any>, index: number, val: string) {
 
     this.updateTodoForm.patchValue({
@@ -86,10 +84,7 @@ export class AppComponent implements OnInit {
 
       });
     });
-
-
   }
-
 
   submitEditTodoModal() {
     const updatedTodo = this.updateTodoForm.value.newTodo;
@@ -105,6 +100,7 @@ export class AppComponent implements OnInit {
     // Close the modal
     this.modalService.dismissAll();
   }
+
   openDeleteModal(todo: any, index: number) {
     const modalRef = this.modalService.open(this.deleteTodoModal, { centered: true });
     modalRef.result.then((result) => {
@@ -115,8 +111,10 @@ export class AppComponent implements OnInit {
 
     })
   }
+
   removeTodo(todo: any, index: number) {
     this.todos = this.todos.filter((todo, i) => i !== index);
     this.updateLocalStorage()
   }
+
 }
