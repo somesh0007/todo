@@ -5,12 +5,14 @@ import { TodoRoutingModule } from './todo-routing.module';
 import { AddtodoComponent } from './addtodo/addtodo.component';
 import { TodoComponent } from './todo.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListComponent } from './list/list.component';
 
 
 @NgModule({
   declarations: [
     AddtodoComponent,
-    TodoComponent
+    TodoComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,

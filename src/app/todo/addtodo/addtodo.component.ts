@@ -1,12 +1,15 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TodoService } from '../service/todo.service';
 
-interface TodoFormType {
+export interface TodoFormType {
   newTodo: FormControl<string | null>,
   index: FormControl<number | null>;
-
 }
+
+
 @Component({
   selector: 'app-addtodo',
   templateUrl: './addtodo.component.html',
@@ -18,30 +21,34 @@ export class AddtodoComponent {
     index: new FormControl(null),
 
   })
-  todos: string[] = [];
-  newTodo: string = '';
+  // newTodo: string []= [];
   constructor(
     public modalService: NgbModal,
+    private todoService: TodoService,
+  ) {
 
-  ) { }
+   }
   addTodo() {
+
     if (this.todoForm.invalid) {
       alert("enter some values")
     } else {
-      const val = this.todoForm.getRawValue()
-      const title = val.newTodo!
-
-      this.todos.push((title));
-      this.todoForm.reset({ newTodo: '' });
-      // this.updateLocalStorage();
+      const todoValue = this.todoForm.getRawValue()
+      const newTodo = todoValue.newTodo!
+      this.todoService.addTodo(newTodo);
+      this.todoForm.reset();
     }
   }
   clear() {
     this.todoForm.reset({ newTodo: '' });
   }
 
+  get todos() {
+    return this.todoService.getTodos()
+  }
+  
+
   clearAll() {
-    this.todos = []
-    // this.updateLocalStorage()
+    this.todoService.clearAll()
   }
 }
