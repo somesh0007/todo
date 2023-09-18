@@ -46,4 +46,34 @@ export class ListComponent implements OnInit{
     this.todoService.removeTodoByIndex(index, todo);
     this.todos = this.todoService.getTodos();
   }
+
+  openTodoEditModal(content: TemplateRef<any>, index: number, val: string) {
+
+    this.updateTodoForm.patchValue({
+      newTodo: val,
+      index: index
+    })
+    this.modalService.open(content, { centered: true, size: 'md' }).result.finally(() => {
+      this.updateTodoForm.reset({
+        newTodo: '',
+
+      });
+    });
+  }
+
+  submitEditTodoModal() {
+    const updatedTodo = this.updateTodoForm.value.newTodo;
+    console.log(updatedTodo);
+
+    const index = this.updateTodoForm.value.index;
+    // Update the todo in the todos array at the specified index
+    if (index >= 0 && index < this.todos.length) {
+      this.todos[index] = updatedTodo;
+      this.todoService.updateLocalStorage()
+     
+    }
+
+    // Close the modal
+    this.modalService.dismissAll();
+  }
 }

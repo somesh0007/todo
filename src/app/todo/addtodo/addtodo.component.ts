@@ -9,25 +9,24 @@ export interface TodoFormType {
   index: FormControl<number | null>;
 }
 
-
 @Component({
   selector: 'app-addtodo',
   templateUrl: './addtodo.component.html',
   styleUrls: ['./addtodo.component.css']
 })
+
 export class AddtodoComponent {
   todoForm = new FormGroup<TodoFormType>({
     newTodo: new FormControl('', [Validators.required]),
     index: new FormControl(null),
 
   })
-  // newTodo: string []= [];
+
   constructor(
     public modalService: NgbModal,
     private todoService: TodoService,
-  ) {
+  ) { }
 
-   }
   addTodo() {
 
     if (this.todoForm.invalid) {
@@ -39,6 +38,7 @@ export class AddtodoComponent {
       this.todoForm.reset();
     }
   }
+
   clear() {
     this.todoForm.reset({ newTodo: '' });
   }
@@ -46,7 +46,6 @@ export class AddtodoComponent {
   get todos() {
     return this.todoService.getTodos()
   }
-  
 
   clearAll() {
     this.todoService.clearAll()

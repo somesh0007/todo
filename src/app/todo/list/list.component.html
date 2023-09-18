@@ -4,12 +4,12 @@
       {{ todo }}
       <div>
         <button class="btn btn-danger mr-2" (click)="openDeleteModal(todo, i)">Remove</button>
-        <!-- <button class="btn btn-primary" (click)="openTodoEditModal(updateOrderDetails, i, todo)">Edit</button> -->
+        <button class="btn btn-primary" (click)="openTodoEditModal(updateOrderDetails, i, todo)">Edit</button>
       </div>
     </li>
   </ul>
   <!--edit todo details modal start-->
- <!-- <ng-template #updateOrderDetails let-modal>
+ <ng-template #updateOrderDetails let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Update todoForm</h4>
     <button (click)="modal.close()" aria-label="Close" class="close" type="button">
@@ -34,7 +34,7 @@
       Save
     </button>
   </div>
-</ng-template> -->
+</ng-template>
 <!-- edit todo  modal end-->
 
 <!-- delete modal starts-->
