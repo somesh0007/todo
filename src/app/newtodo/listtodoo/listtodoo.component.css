@@ -1,0 +1,56 @@
+.modal-dialog {
+    max-width: 80%;
+  }
+  
+  /* Style for the modal header */
+  .modal-header {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+  }
+  
+  /* Style for the modal title */
+  .modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .close {
+    font-size: 1.5rem;
+    line-height: 1; /* Center the cross vertically */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+    transition: color 0.3s ease; /* Add a smooth transition effect for color */
+  }
+  
+  /* Hover effect for the close button */
+  .close:hover {
+    color: red; /* Change the color on hover (you can choose your desired color) */
+  }
+  
+  /* Style for the modal body */
+  .modal-body {
+    padding: 20px;
+  }
+  
+  /* Style for the form group */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Style for labels */
+  label {
+    font-weight: bold;
+  }
+  
+  /* Style for the input field */
+  input.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Style for modal footer buttons */
+  .modal-footer button {
+    margin-right: 10px;
+  }

@@ -18,6 +18,9 @@ import { ListComponent } from './list/list.component';
     CommonModule,
     TodoRoutingModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    
   ]
 })
 export class TodoModule { }
