@@ -1,0 +1,47 @@
+.page-not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8; /* Light gray background */
+    font-family: Arial, sans-serif;
+  }
+  
+  .illustration {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .illustration img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .content {
+    flex: 1;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    color: #f44336; /* Red color */
+  }
+  
+  p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #333; /* Dark gray color */
+  }
+  
+  a {
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #2196F3; /* Blue color */
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

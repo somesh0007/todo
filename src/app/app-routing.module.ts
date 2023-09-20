@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,11 @@ const routes: Routes = [
   {
     path: 'newtodo',
     loadChildren: () => import('../app/newtodo/newtodo.module').then(m => m.NewtodoModule),
+  }
+  ,
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
