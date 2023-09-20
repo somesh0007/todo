@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export interface TodoFormType {
@@ -12,6 +12,17 @@ export interface TodoFormType {
 })
 export class AddtodooComponent {
   @Output() newItemEvent = new EventEmitter<string>();
+  @Output() clearAllItemEvent = new EventEmitter<string[]>();
+
+  @Input() set setItems(items: string[]) {
+    this._items = items;
+  }
+
+  get setItems() {
+    return this._items;
+  }
+  
+  _items: string[] = []
 
   todoForm = new FormGroup<TodoFormType>({
     newTodo: new FormControl('', [Validators.required]),
@@ -24,38 +35,21 @@ export class AddtodooComponent {
 
   addNewItem() {
     const newItemValue = this.todoForm.get('newTodo')?.value;
+    
     if (newItemValue) {
       this.newItemEvent.emit(newItemValue);
       this.todoForm.reset();
     }
   }
 
-
-
-
-
-
-  // addTodo() {
-
-  //   if (this.todoForm.invalid) {
-  //     alert("enter some values")
-  //   } else {
-  //     const todoValue = this.todoForm.getRawValue()
-  //     const newTodo = todoValue.newTodo!
-  //     // this.todoService.addTodo(newTodo);
-  //     this.todoForm.reset();
-  //   }
-  // }
-
   clear() {
     this.todoForm.reset({ newTodo: '' });
   }
 
-  // get todos() {
-  //   // return this.todoService.getTodos()
-  // }
-
-  clearAll() {
-    // this.todoService.clearAll()
+ 
+  clearAll(){
+    this._items = []
+    this.clearAllItemEvent.emit(this._items)
   }
+ 
 }

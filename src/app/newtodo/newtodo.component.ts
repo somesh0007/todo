@@ -23,4 +23,7 @@ export class NewtodoComponent {
    
   }
  }
+ clearAll(deletedValue:string[]){
+  this.items = deletedValue
+ }
 }

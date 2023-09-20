@@ -12,6 +12,7 @@ export class ListtodooComponent {
   @ViewChild('deleteTodoModal', { static: true }) deleteTodoModal: TemplateRef<any> | undefined;
   @Output() removeItemEvent = new EventEmitter<number>();
   @Output() editItemEvent = new EventEmitter<{ updatedTodo: string, index: number }>();
+  
   constructor(private modalService: NgbModal){}
 
   @Input() items:string[] = [];

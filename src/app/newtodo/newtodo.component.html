@@ -1,6 +1,6 @@
 
 <div class="container mt-4">
     <h2>Todo List</h2>
-    <app-add-todoo (newItemEvent)="addItem($event)"></app-add-todoo>
+    <app-add-todoo (newItemEvent)="addItem($event)" [setItems]="items" (clearAllItemEvent)="clearAll($event)"></app-add-todoo>
     <app-list-todoo [items]="items" (removeItemEvent)="removeTodo($event)" (editItemEvent)="updateItem($event)"></app-list-todoo>
 </div>
